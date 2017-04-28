@@ -22,6 +22,9 @@ from yowsup.layers.protocol_profiles.protocolentities    import *
 from yowsup.common.tools import Jid
 from yowsup.common.optionalmodules import PILOptionalModule, AxolotlOptionalModule
 
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 logger = logging.getLogger(__name__)
 class YowsupCliLayer(Cli, YowInterfaceLayer):
     PROP_RECEIPT_AUTO       = "org.openwhatsapp.yowsup.prop.cli.autoreceipt"
@@ -31,7 +34,7 @@ class YowsupCliLayer(Cli, YowInterfaceLayer):
     EVENT_START             = "org.openwhatsapp.yowsup.event.cli.start"
     EVENT_SENDANDEXIT       = "org.openwhatsapp.yowsup.event.cli.sendandexit"
 
-    MESSAGE_FORMAT          = "[{FROM}({TIME})]:[{MESSAGE_ID}]\t {MESSAGE}"
+    MESSAGE_FORMAT          = u"[{FROM}({TIME})]:[{MESSAGE_ID}]\t {MESSAGE}"
 
     FAIL_OPT_PILLOW         = "No PIL library installed, try install pillow"
     FAIL_OPT_AXOLOTL        = "axolotl is not installed, try install python-axolotl"
